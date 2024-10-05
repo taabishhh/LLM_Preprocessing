@@ -1,17 +1,27 @@
 package BPE
 
 import com.knuddels.jtokkit.Encodings
-import com.knuddels.jtokkit.api.EncodingRegistry
-import com.knuddels.jtokkit.api.ModelType
-import com.knuddels.jtokkit.api.IntArrayList
+import com.knuddels.jtokkit.api.{EncodingRegistry, IntArrayList, ModelType}
+import org.slf4j.{Logger, LoggerFactory}
 
 object BPEEncoding {
 
   private val registry: EncodingRegistry = Encodings.newDefaultEncodingRegistry()
   private val enc = registry.getEncodingForModel(ModelType.GPT_4)
+  private val logger: Logger = LoggerFactory.getLogger(this.getClass)
 
   def encode(line: String): IntArrayList = {
-    enc.encode(line)
+    logger.debug(s"Encoding text: $line")
+
+    try {
+      val encoded = enc.encode(line)
+      logger.debug(s"Encoded text: ${encoded.toArray.mkString(", ")}")
+      encoded
+    } catch {
+      case e: Exception =>
+        logger.error(s"Error during encoding: ${e.getMessage}", e)
+        new IntArrayList()
+    }
   }
 
   def toList(encoded: IntArrayList): List[Int] = {
