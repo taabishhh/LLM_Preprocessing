@@ -75,6 +75,7 @@ The project requires the following dependencies:
    Execute the `MainApp` with the following command, replacing `<input-path>` and `<output-path>` with your respective paths:
    ```bash
    hadoop jar target/scala-3.5.0/<your-jar-name>.jar MainApp <input-path> <output-path>
+   Eg. hadoop jar target/scala-3.5.0/HW1.jar MainApp src/resources/input src/resources/output
    ```
    - **Input Path**: Path to the text corpus for BPE tokenization.
    - **Output Path**: Path where results will be stored.
