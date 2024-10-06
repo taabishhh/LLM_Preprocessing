@@ -4,8 +4,6 @@ Name: Taabish Sutriwala
 Email: tsutr@uic.edu
 UIN: 673379837
 
-Here’s a draft for your README file that explains the steps involved in your project, providing clear documentation on how to assemble and deploy your program, along with additional insights into the results and limitations:
-
 ---
 
 # Homework 1
