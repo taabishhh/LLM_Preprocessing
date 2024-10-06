@@ -24,7 +24,7 @@ object BPEMapReduceJob {
   }
 
   // Configure the Hadoop MapReduce job
-  private def configureJob(inputPath: String, outputPath: String, shardSize: Long): JobConf = {
+   def configureJob(inputPath: String, outputPath: String, shardSize: Long): JobConf = {
     logger.info(s"Configuring MapReduce job with input: $inputPath and output: $outputPath")
     val conf = new JobConf(this.getClass)
     conf.setJobName("BPETokenizer")

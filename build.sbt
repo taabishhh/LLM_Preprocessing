@@ -31,15 +31,7 @@ libraryDependencies += "org.deeplearning4j" % "deeplearning4j-nlp" % "1.0.0-M2.1
 libraryDependencies += "org.nd4j" % "nd4j-native-platform" % "1.0.0-M2.1"
 libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.5.6"
 libraryDependencies += "org.slf4j" % "slf4j-api" % "2.0.12"
-//libraryDependencies += "org.bytedeco" % "openblas" % "0.3.19-1.5.7" // Use the latest version available
-//libraryDependencies += "org.nd4j" % "nd4j-native" % "1.0.0-M2.1"
-//libraryDependencies += "org.nd4j" % "nd4j-backends" % "1.0.0-M2.1"
-//libraryDependencies += "org.nd4j" % "nd4j-api" % "1.0.0-M2.1"
-//libraryDependencies += "org.nd4j" % "nd4j-api-parent" % "1.0.0-M2.1"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.19" % "test"
+libraryDependencies += "org.scalatestplus" %% "mockito-5-12" % "3.2.19.0" % "test"
 
 
-//libraryDependencies += "org.nd4j" % "nd4j-native" % "1.0.0-M2.1" classifier "macosx-arm64"
-//libraryDependencies += "org.nd4j" % "nd4j-native-preset" % "1.0.0-M1.1" classifier "macosx-arm64"
-//libraryDependencies += "org.bytedeco" % "openblas-platform" % "0.3.19-1.5.7"
-//libraryDependencies += "org.bytedeco" % "javacpp-platform" % "1.5.7"
-//libraryDependencies += "org.bytedeco" % "mkl-platform" % "2022.0-1.5.7"
