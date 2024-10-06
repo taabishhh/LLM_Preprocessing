@@ -31,19 +31,6 @@ object MainApp {
     // Load the trained Word2Vec model
     val word2Vec = WordVectorSerializer.readWord2VecModel(new File("word2vec_model.bin"))
 
-    // Example: get an embedding for a word
-    val exampleWord = "hello" // Replace with your word
-    logger.info("Evaluating embeddings...")
-    val embedding = Word2VecEmbedding.getEmbedding(word2Vec, exampleWord)
-
-    // Print the embedding
-    embedding match {
-      case Some(vec) =>
-        logger.info(s"Embedding for '$exampleWord': ${vec.mkString(", ")}")
-      case None =>
-        logger.info("Word not in the vocabulary!")
-    }
-
     // Perform dimensionality evaluation
     DimensionalityEvaluator.determineOptimalDimensions()
 
