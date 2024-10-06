@@ -73,14 +73,14 @@ The project requires the following dependencies:
 
 3. **Run the Program**:
    Execute the `MainApp` with the following command, replacing `<input-path>` and `<output-path>` with your respective paths:
+   Eg. hadoop jar target/scala-3.5.0/HW1.jar MainApp src/resources/input src/resources/output
    ```bash
    hadoop jar target/scala-3.5.0/<your-jar-name>.jar MainApp <input-path> <output-path>
-   Eg. hadoop jar target/scala-3.5.0/HW1.jar MainApp src/resources/input src/resources/output
    ```
    - **Input Path**: Path to the text corpus for BPE tokenization.
    - **Output Path**: Path where results will be stored.
 
-4. **View Results**:
+5. **View Results**:
    After execution, the output will include:
    - **Vocabulary Statistics**: Available in `vocabulary_stats.csv` within the output directory.
    - **Similar Words**: Found in `similar_words.csv`.
