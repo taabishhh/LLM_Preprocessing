@@ -14,9 +14,9 @@ class BPETokenMapperTest extends AnyFlatSpec with Matchers {
     val mockOutputCollector = mock(classOf[OutputCollector[Text, IntWritable]])
     val line = "hello world"
     val key = new LongWritable(1)
-//    val value = new Text(line)
+    val value = new Text(line)
 
-    mapper.map(key, line, mockOutputCollector, null)
+    mapper.map(key, value, mockOutputCollector, null)
 
     // Capture output values
     val wordCaptor = ArgumentCaptor.forClass(classOf[Text])
