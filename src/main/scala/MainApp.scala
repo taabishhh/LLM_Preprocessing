@@ -15,7 +15,7 @@ object MainApp {
     }
     logger.debug(s"Received arguments: ${args.mkString(", ")}")
 
-    val inputPath = args(1)
+    val inputPath = s"${args(1)}/data.csv"
     val outputPath = args(2)
 //    val corpusPath = args(1) // Path to text corpus for Word2Vec
     val shardSize = 64 * 1024 * 1024
