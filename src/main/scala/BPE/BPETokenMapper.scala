@@ -8,9 +8,8 @@ import java.io.IOException
 
 class BPETokenMapper extends MapReduceBase with Mapper[LongWritable, Text, Text, IntWritable] {
   private final val one = new IntWritable(1)
-  private val word = new Text()
   private val wordAndToken = new Text()
-  private val logger = LoggerFactory.getLogger(this.getClass)
+  private val logger = LoggerFactory.getLogger(getClass)
 
   @throws[IOException]
   override def map(key: LongWritable, value: Text, output: OutputCollector[Text, IntWritable], reporter: Reporter): Unit = {
@@ -23,15 +22,17 @@ class BPETokenMapper extends MapReduceBase with Mapper[LongWritable, Text, Text,
 
     // BPE encode the line
     try {
-      words.map { word =>
+      for (word <- words) {
         val encoded = BPEEncoding.encode(word)
         val encodedList = BPEEncoding.toList(encoded)
 
-        encodedList.map { token =>
-          wordAndToken.set(s"$word ($token)")
+        for (token <- encodedList) {
+          wordAndToken.set(s"$word\t$token")
           output.collect(wordAndToken, one)
         }
       }
-    } catch case e: Exception => logger.error(s"Error during token reducing: ${e.getMessage}", e)
+    } catch {
+      case e: Exception => logger.error(s"Error during token reducing: ${e.getMessage}", e)
+    }
   }
 }

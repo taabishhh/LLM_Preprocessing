@@ -1,2 +1,3 @@
 howdy y'all! How's it going with this class? I hope it is going ok.
-This is my first scala program
+this is my first scala program. I went for a walk. I am going for a walk.
+I am walking towards my home.

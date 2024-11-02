@@ -1,4 +1,5 @@
-import BPE.{BPEMapReduceJob, Word2VecEmbedding}
+import BPE.BPEMapReduceJob
+import Word2VecEmbedding.Word2VecEmbedding
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.mockito.MockitoSugar

@@ -1,20 +1,21 @@
 package BPE
 
+import config.ConfigLoader
 import org.apache.hadoop.io.{IntWritable, Text}
 import org.apache.hadoop.mapred.{MapReduceBase, OutputCollector, Reducer, Reporter}
 import org.slf4j.LoggerFactory
 
 import java.io.{BufferedWriter, FileWriter}
-import scala.jdk.CollectionConverters.*
+import scala.jdk.CollectionConverters._
 
 class BPETokenReducer extends MapReduceBase with Reducer[Text, IntWritable, Text, IntWritable] {
-  private val logger = LoggerFactory.getLogger(this.getClass)
+  private val logger = LoggerFactory.getLogger(getClass)
 
   // File writer for outputting vocabulary statistics
-  private val writer = new BufferedWriter(new FileWriter("vocabulary_stats.csv"))
+  private val writer = new BufferedWriter(new FileWriter(s"${ConfigLoader.outputPath}/BPE/output.txt/vocabulary_stats.csv"))
 
   // Write header to the CSV file
-  writer.write("Word,Token,Frequency\n")
+  writer.write("Word\tToken\tFrequency\n")
 
   override def reduce(key: Text, values: java.util.Iterator[IntWritable], output: OutputCollector[Text, IntWritable], reporter: Reporter): Unit = {
     logger.debug(s"Reducing token: $key")
@@ -24,10 +25,10 @@ class BPETokenReducer extends MapReduceBase with Reducer[Text, IntWritable, Text
 
       // Write token statistics to the CSV file
       val wordWithToken = key.toString
-      val frequency = sum.toString
-      writer.write(s"$wordWithToken,$frequency\n")
-    } catch
+      writer.write(s"$wordWithToken\t$sum\n")
+    } catch {
       case e: Exception => logger.error(s"Error during token reducing: ${e.getMessage}", e)
+    }
   }
 
   // Close the writer when the reducer finishes

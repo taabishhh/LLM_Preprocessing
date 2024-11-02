@@ -1,4 +1,4 @@
-import BPE.Word2VecEmbedding
+import Word2VecEmbedding.Word2VecEmbedding
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 

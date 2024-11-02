@@ -8,7 +8,7 @@ object BPEEncoding {
 
   private val registry: EncodingRegistry = Encodings.newDefaultEncodingRegistry()
   private val enc = registry.getEncodingForModel(ModelType.GPT_4)
-  private val logger: Logger = LoggerFactory.getLogger(this.getClass)
+  private val logger: Logger = LoggerFactory.getLogger(getClass)
 
   def encode(line: String): IntArrayList = {
     logger.debug(s"Encoding text: $line")
