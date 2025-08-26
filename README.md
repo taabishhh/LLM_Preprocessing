@@ -1,4 +1,4 @@
-# CS441_Fall2024
+# CS441 - Homework1 (UIC)
 Class repository for CS441 on Cloud Computing taught at the University of Illinois, Chicago in Fall, 2024 <br>
 Name: Taabish Sutriwala
 Email: tsutr@uic.edu
